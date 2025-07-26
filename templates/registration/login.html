@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% comment %} {% extends "layout.html" %}
 
 {% block content %}
 
@@ -9,4 +9,26 @@
     <button class="btn btn-primary">Login</button>
 </form>
 <p>Don't have a account? <a href="{% url "register" %}" class="href">Register Here</a></p>
+{% endblock  %} {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+
+<h2>Login Form</h2>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary">Login</button>
+</form>
+<p>Don't have a account? <a href="{% url "register" %}" class="href">Register Here</a></p>
 {% endblock  %}
+    
+</body>
+</html>
